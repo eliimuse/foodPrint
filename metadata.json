@@ -1,0 +1,6 @@
+{
+  "name": "FoodPrint - Smart Hostel Mess Management",
+  "description": "Hostel mess management web app reducing food waste through next-day meal confirmations, dish preferences, and ML-driven turnout prediction.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

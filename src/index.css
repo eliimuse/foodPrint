@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --app-font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  
+  /* Heritage Clay & Masala (Default Theme) */
+  --color-primary: #c2410c;
+  --color-primary-hover: #9a3412;
+  --color-primary-light: #fff7ed;
+  --color-primary-border: #fed7aa;
+  --color-primary-text: #7c2d12;
+  --color-accent-badge: #ea580c;
+}
+
+[data-theme="terracotta"] {
+  --color-primary: #c2410c;
+  --color-primary-hover: #9a3412;
+  --color-primary-light: #fff7ed;
+  --color-primary-border: #fed7aa;
+  --color-primary-text: #7c2d12;
+  --color-accent-badge: #ea580c;
+}
+
+/* Dark mode adjustments for Heritage Clay */
+.dark,
+.dark[data-theme="terracotta"] {
+  --color-primary: #ea580c;
+  --color-primary-hover: #f97316;
+  --color-primary-light: rgba(124, 45, 18, 0.4);
+  --color-primary-border: rgba(234, 88, 12, 0.3);
+  --color-primary-text: #fed7aa;
+}
+
+/* Dark mode theme adjustments */
+.dark[data-theme="emerald"] {
+  --color-primary: #10b981;
+  --color-primary-hover: #34d399;
+  --color-primary-light: rgba(6, 78, 59, 0.4);
+  --color-primary-border: rgba(16, 185, 129, 0.3);
+  --color-primary-text: #a7f3d0;
+}
+
+.dark[data-theme="saffron"] {
+  --color-primary: #f59e0b;
+  --color-primary-hover: #fbbf24;
+  --color-primary-light: rgba(120, 53, 15, 0.4);
+  --color-primary-border: rgba(245, 158, 11, 0.3);
+  --color-primary-text: #fde68a;
+}
+
+.dark[data-theme="cobalt"] {
+  --color-primary: #3b82f6;
+  --color-primary-hover: #60a5fa;
+  --color-primary-light: rgba(30, 58, 138, 0.4);
+  --color-primary-border: rgba(59, 130, 246, 0.3);
+  --color-primary-text: #bfdbfe;
+}
+
+.dark[data-theme="terracotta"] {
+  --color-primary: #ea580c;
+  --color-primary-hover: #f97316;
+  --color-primary-light: rgba(124, 45, 18, 0.4);
+  --color-primary-border: rgba(234, 88, 12, 0.3);
+  --color-primary-text: #fed7aa;
+}
+
+@layer base {
+  body {
+    font-family: var(--app-font-family);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Reusable theme utility classes */
+.theme-bg-primary {
+  background-color: var(--color-primary) !important;
+}
+
+.theme-text-primary {
+  color: var(--color-primary) !important;
+}
+
+.theme-border-primary {
+  border-color: var(--color-primary) !important;
+}
+
+.theme-badge-primary {
+  background-color: var(--color-primary-light) !important;
+  color: var(--color-primary-text) !important;
+  border-color: var(--color-primary-border) !important;
+}
