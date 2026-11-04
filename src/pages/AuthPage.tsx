@@ -119,8 +119,13 @@ export const AuthPage: React.FC = () => {
     if (msg.includes('Password should be at least 6 characters')) {
       return 'Password must contain at least 6 characters.';
     }
+    if (msg.includes('email rate limit') || msg.includes('over_email_send_rate_limit')) {
+      return 'Supabase email rate limit reached. Please wait a few minutes, or toggle OFF "Confirm email" in your Supabase Dashboard (Authentication → Providers → Email) for instant signups.';
+    }
     if (msg.includes('rate limit')) {
-      return 'Too many login attempts. Please wait a minute and try again.';
+      return mode === 'signup'
+        ? 'Too many signup attempts. Please wait a few minutes or disable "Confirm email" in your Supabase project settings.'
+        : 'Too many login attempts. Please wait a minute and try again.';
     }
     return msg || 'Authentication error. Please check your connection and try again.';
   };

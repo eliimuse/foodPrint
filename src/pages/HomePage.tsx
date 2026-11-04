@@ -117,6 +117,17 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className="space-y-8">
+      {/* Brand Badge - displayed once user enters the app */}
+      <div className="flex items-center justify-between">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-50 dark:bg-orange-950/60 border border-orange-200 dark:border-orange-900 text-xs font-semibold text-orange-700 dark:text-orange-400">
+          <Sparkles className="w-3.5 h-3.5" />
+          <span>Hostel Mess Management & Food Waste Reduction</span>
+        </div>
+        <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+          Day D-1 Cutoff: <span className="font-mono text-orange-600 dark:text-orange-400 font-bold">8:00 PM IST</span>
+        </div>
+      </div>
+
       {/* Session State Banner */}
       {!isAuthenticated ? (
         <div className="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">

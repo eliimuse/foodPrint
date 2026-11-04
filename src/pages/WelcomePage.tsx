@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Leaf, ArrowRight, Clock, Brain, ChefHat, Sparkles } from 'lucide-react';
+import { Leaf, ArrowRight, Clock, Brain, ChefHat } from 'lucide-react';
 
 export const WelcomePage: React.FC = () => {
   const navigate = useNavigate();
@@ -28,12 +28,6 @@ export const WelcomePage: React.FC = () => {
 
   return (
     <div className="min-h-[85vh] flex flex-col items-center justify-center px-4 sm:px-6 py-12 text-center">
-      {/* Brand Badge */}
-      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-50 dark:bg-orange-950/60 border border-orange-200 dark:border-orange-900 text-xs font-semibold text-orange-700 dark:text-orange-400 mb-6">
-        <Sparkles className="w-3.5 h-3.5" />
-        <span>Hostel Mess Management & Food Waste Reduction</span>
-      </div>
-
       {/* Wordmark Logo */}
       <div className="flex items-center justify-center gap-3 mb-4">
         <div className="w-12 h-12 rounded-2xl bg-orange-600 text-white flex items-center justify-center shadow-md">

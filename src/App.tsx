@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { DataProvider } from './context/DataContext';
 import { ThemeProvider } from './context/ThemeContext';
@@ -17,10 +17,13 @@ import { DashboardPage } from './pages/DashboardPage';
 import { AdminMenuPage } from './pages/AdminMenuPage';
 
 const AppLayout: React.FC = () => {
+  const location = useLocation();
+  const isWelcomePage = location.pathname === '/';
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col transition-colors selection:bg-orange-600 selection:text-white">
-      {/* Cutoff Simulation & Live IST Banner */}
-      <CutoffSimulatorBanner />
+      {/* Cutoff Simulation & Live IST Banner - only shown after Get Started */}
+      {!isWelcomePage && <CutoffSimulatorBanner />}
 
       {/* Top Navbar */}
       <Navbar />
@@ -85,19 +88,21 @@ const AppLayout: React.FC = () => {
         </Routes>
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-slate-200 dark:border-slate-800 py-6 text-center text-xs text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900 mt-auto">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <span className="font-semibold text-slate-800 dark:text-slate-200">FoodPrint</span>
-            <span>·</span>
-            <span>Zero Food Waste Hostel Mess Management System</span>
+      {/* Footer - only shown after Get Started */}
+      {!isWelcomePage && (
+        <footer className="border-t border-slate-200 dark:border-slate-800 py-6 text-center text-xs text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900 mt-auto">
+          <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-2">
+              <span className="font-semibold text-slate-800 dark:text-slate-200">FoodPrint</span>
+              <span>·</span>
+              <span>Zero Food Waste Hostel Mess Management System</span>
+            </div>
+            <div className="font-mono text-[11px] text-slate-400">
+              Cutoff Rule: Locked at 8:00 PM IST (Asia/Kolkata) on Day D-1
+            </div>
           </div>
-          <div className="font-mono text-[11px] text-slate-400">
-            Cutoff Rule: Locked at 8:00 PM IST (Asia/Kolkata) on Day D-1
-          </div>
-        </div>
-      </footer>
+        </footer>
+      )}
     </div>
   );
 };
